@@ -29,7 +29,7 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <ScrollView className="flex flex-col items-center p-5 w-full h-full">
+    <ScrollView contentContainerClassName="flex flex-col items-center p-5 w-full h-full bg-black">
       {loading ? (
         <ThemedView className="flex justify-center w-full h-full text-center">
           <ThemedText>Cargando...</ThemedText>
@@ -49,7 +49,7 @@ export default function HomeScreen() {
           </ThemedView>
         ))
       ) : (
-        <ThemedView className="flex justify-center w-full h-full text-center">
+        <ThemedView className="flex rounded-xl justify-center items-center w-full h-full text-center">
           <ThemedText>Sin eventos próximos</ThemedText>
         </ThemedView>
       )}
