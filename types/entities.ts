@@ -1,5 +1,7 @@
 export interface Flayer {
   name: string;
-  imageURL: string;
+  fileType: "video" | "image";
+  fileURL: string;
   dateOfEvent: string;
+  creationDate: string;
 }

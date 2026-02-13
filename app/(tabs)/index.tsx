@@ -2,6 +2,7 @@ import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
 import { demoFlayers } from "@/mock-data/data";
 import { Flayer } from "@/types/entities";
+import { ResizeMode, Video } from "expo-av"; // IMPORTANTE, REEMPLAZAR EXPO-AV POR EXPO-VIDEO
 import { useEffect, useState } from "react";
 import { Alert, Image, ScrollView } from "react-native";
 
@@ -29,7 +30,7 @@ export default function HomeScreen() {
   }, []);
 
   return (
-    <ScrollView contentContainerClassName="flex flex-col items-center p-5 w-full h-full bg-black">
+    <ScrollView contentContainerClassName={`flex flex-col items-center p-5 w-full h-full`} contentContainerStyle={{backgroundColor: "#14131d"}}>
       {loading ? (
         <ThemedView className="flex justify-center w-full h-full text-center">
           <ThemedText>Cargando...</ThemedText>
@@ -38,14 +39,26 @@ export default function HomeScreen() {
         flayers.map((f) => (
           <ThemedView
             key={f.name}
-            className="flex rounded-xl h-fit shadow-md m-3 justify-center"
+            className="flex rounded-xl border-white h-fit w-full m-3 justify-center"
           >
+            {f.fileType === "image" ? 
             <Image
-              src={f.imageURL}
+              src={f.fileURL}
               alt={f.dateOfEvent}
               height={500}
               width={200}
             />
+            :
+            <Video 
+              source={{
+                uri: f.fileURL
+              }}
+              className="w-[720px] h-[720px]"
+              resizeMode={ResizeMode.CONTAIN}
+              shouldPlay
+              isLooping
+            />
+            }
           </ThemedView>
         ))
       ) : (
