@@ -1,11 +1,22 @@
 import { Flayer } from "@/types/entities";
 
 export const demoFlayers = [
-    {
-        creationDate: new Date().toISOString(),
-        dateOfEvent: new Date().toISOString(),
-        fileType: "video",
-        fileURL: "C:/Users/Ttell/Desktop/repos/coyotes-preview/assets/videos/video1.mp4",
-        name: "San Valentin"
-    }
+  {
+    id: 1,
+    creationDate: new Date().toISOString(),
+    dateOfEvent: new Date().toISOString(),
+    fileType: "video",
+    fileURL: require("../assets/videos/video1.mp4"),
+    name: "San Valentin",
+    aspectRatio: "4:3",
+  },
+  {
+    id: 2,
+    creationDate: new Date().toISOString(),
+    dateOfEvent: new Date().toISOString(),
+    fileType: "image",
+    fileURL: require("../assets/images/jueves_event.png"),
+    name: "Jueves open mic",
+    aspectRatio: "4:3",
+  },
 ] as Flayer[];
