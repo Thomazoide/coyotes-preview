@@ -32,7 +32,7 @@ export default function HomeScreen() {
 
   const renderItem = ({ item }: { item: Flayer }) => {
     return (
-      <ThemedView className="flex rounded-xl border-white min-h-[300px] min-w-[300px] max-w-full max-h-[700px] m-3 justify-center my-7 bg-[#000] overflow-hidden">
+      <ThemedView className="flex rounded-xl min-h-[300px] min-w-[300px] max-w-full max-h-[700px] m-3 justify-center my-5 bg-[#000] overflow-hidden border-2 border-pink-700">
         <ThemedText className="text-center p-2">{item.name}</ThemedText>
         {item.fileType === "image" && typeof item.fileURL === "string" ? (
           <Image src={item.fileURL} alt={item.name} height={300} width={300} />
@@ -50,7 +50,7 @@ export default function HomeScreen() {
   return (
     <>
       <ThemedText
-        className="pt-4 text-center text-white bg-black border-b-[0.5px] border-b-gray-400 "
+        className="pt-4 text-center text-pink-700 bg-black border-b-[0.5px] border-b-gray-400 "
         type="title"
       >
         Eventos programados
